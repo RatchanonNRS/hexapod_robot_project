@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Hexa">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0159191219035407 1.78598475435859E-06 0.0473897139056443"
+        rpy="0 0 0" />
+      <mass
+        value="0.304691827318369" />
+      <inertia
+        ixx="0.000211534311097187"
+        ixy="5.54974498618712E-07"
+        ixz="-9.85936906097142E-06"
+        iyy="0.0004565941411612"
+        iyz="-3.00388901922387E-09"
+        izz="0.000614950394684616" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/base_link.STL" />
+      </geometry>
+    </collision>  
+  </link>  <!--
+  <link name="imu_link">
+    <visual>
+      <geometry>
+        <box size="0.01 0.01 0.01"/> </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.001"/>
+      <inertia ixx="0.000001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.000001"/>
+    </inertial>
+  </link>
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0.02" rpy="0 0 0"/>
+  </joint>  -->
+  <link
+    name="LF_C_link">
+    <inertial>
+      <origin
+        xyz="0.000922355485623083 0.0371280448012749 0.01585235279848"
+        rpy="0 0 0" />
+      <mass
+        value="0.0389935657212822" />
+      <inertia
+        ixx="9.18079250623328E-06"
+        ixy="1.5497111962031E-07"
+        ixz="-4.90890566687565E-08"
+        iyy="1.06648240582475E-05"
+        iyz="5.02040775538188E-08"
+        izz="6.95139216559555E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LF_C_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LF_C_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_Coxa"
+    type="revolute">
+    <origin
+      xyz="0.0679 0.0525 -0.00749999999999991"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="LF_C_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="LF_F_link">
+    <inertial>
+      <origin
+        xyz="0.0304718011868279 2.29553084095694E-07 0.0246566344648548"
+        rpy="0 0 0" />
+      <mass
+        value="0.0144341085367684" />
+      <inertia
+        ixx="4.43242175227063E-06"
+        ixy="6.57855187418313E-10"
+        ixz="1.7239435476247E-07"
+        iyy="1.09695215768825E-05"
+        iyz="1.76601697657809E-12"
+        izz="6.99978823591704E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LF_F_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LF_F_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_Femur"
+    type="revolute">
+    <origin
+      xyz="-0.0241499999999999 0.039375 0.00687499999999993"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="LF_C_link" />
+    <child
+      link="LF_F_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="800"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="LF_T_link">
+    <inertial>
+      <origin
+        xyz="0.0121278189044148 -0.000749614078893068 -0.0120037195686255"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116672766726343" />
+      <inertia
+        ixx="7.08113101445983E-07"
+        ixy="-3.76585728461708E-09"
+        ixz="-4.93614244321136E-08"
+        iyy="3.77316032251225E-06"
+        iyz="-2.47437181370424E-08"
+        izz="3.51662166240586E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LF_T_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LF_T_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_tibia"
+    type="revolute">
+    <origin
+      xyz="0.0720000000273115 0.000836227975427716 0.0127454995622929"
+      rpy="-3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="LF_F_link" />
+    <child
+      link="LF_T_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RM_C_link">
+    <inertial>
+      <origin
+        xyz="0.000922303101936486 -0.0371266914986939 0.0179986583892183"
+        rpy="0 0 0" />
+      <mass
+        value="0.0389959772986439" />
+      <inertia
+        ixx="9.18197671581215E-06"
+        ixy="-1.55018457159416E-07"
+        ixz="-4.90058479517656E-08"
+        iyy="1.06656684022612E-05"
+        iyz="-4.96989195488469E-08"
+        izz="6.95177069171079E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RM_C_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RM_C_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RM_Coxa"
+    type="revolute">
+    <origin
+      xyz="0.000349999999999226 -0.0524999999999994 -0.0075"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RM_C_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RM_F_link">
+    <inertial>
+      <origin
+        xyz="0.0304718011868279 2.29553084095044E-07 0.0246566344648548"
+        rpy="0 0 0" />
+      <mass
+        value="0.0144341085367684" />
+      <inertia
+        ixx="4.43242175227064E-06"
+        ixy="6.57855187415579E-10"
+        ixz="1.72394354762455E-07"
+        iyy="1.09695215768826E-05"
+        iyz="1.76601697543953E-12"
+        izz="6.99978823591704E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RM_F_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RM_F_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RM_Femur"
+    type="revolute">
+    <origin
+      xyz="-0.02415 -0.039375 0.00947500000000003"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="RM_C_link" />
+    <child
+      link="RM_F_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="800"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RM_T_link">
+    <inertial>
+      <origin
+        xyz="0.000749614144558042 -0.0121278189044148 -0.0120037195686255"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116672766726343" />
+      <inertia
+        ixx="3.77316032251209E-06"
+        ixy="-3.76585611377934E-09"
+        ixz="2.47437170470743E-08"
+        iyy="7.08113101444538E-07"
+        iyz="4.93614244321133E-08"
+        izz="3.51662166240425E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RM_T_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RM_T_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RM_Tibia"
+    type="revolute">
+    <origin
+      xyz="0.0719999999726885 -0.000836227975427786 0.0127454995622928"
+      rpy="-3.14159265358979 0 0" />
+    <parent
+      link="RM_F_link" />
+    <child
+      link="RM_T_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="LR_C_link">
+    <inertial>
+      <origin
+        xyz="0.000922355485623116 0.0371280448012749 0.01585235279848"
+        rpy="0 0 0" />
+      <mass
+        value="0.0389935657212822" />
+      <inertia
+        ixx="9.18079250623329E-06"
+        ixy="1.54971119620305E-07"
+        ixz="-4.90890566687574E-08"
+        iyy="1.06648240582475E-05"
+        iyz="5.02040775538379E-08"
+        izz="6.95139216559556E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LR_C_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LR_C_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LR_Coxa"
+    type="revolute">
+    <origin
+      xyz="-0.0679 0.0525000000000002 -0.00750000000000001"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="LR_C_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="LR_F_link">
+    <inertial>
+      <origin
+        xyz="0.030471801186828 2.29553084095911E-07 0.0246566344648548"
+        rpy="0 0 0" />
+      <mass
+        value="0.0144341085367684" />
+      <inertia
+        ixx="4.43242175227063E-06"
+        ixy="6.57855187416924E-10"
+        ixz="1.72394354762455E-07"
+        iyy="1.09695215768825E-05"
+        iyz="1.76601697599106E-12"
+        izz="6.99978823591703E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LR_F_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LR_F_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LR_Femur"
+    type="revolute">
+    <origin
+      xyz="-0.0241499999999999 0.039375 0.00687499999999995"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="LR_C_link" />
+    <child
+      link="LR_F_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="800"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="LR_T_link">
+    <inertial>
+      <origin
+        xyz="0.0121278189044148 -0.000749614078893152 -0.0120037195686255"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116672766726343" />
+      <inertia
+        ixx="7.08113101445367E-07"
+        ixy="-3.76585728456564E-09"
+        ixz="-4.93614244321143E-08"
+        iyy="3.77316032251212E-06"
+        iyz="-2.47437181370408E-08"
+        izz="3.51662166240511E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LR_T_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LR_T_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LR_Tibia"
+    type="revolute">
+    <origin
+      xyz="0.0720000000273115 0.000836227975427765 0.0127454995622928"
+      rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="LR_F_link" />
+    <child
+      link="LR_T_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RF_C_link">
+    <inertial>
+      <origin
+        xyz="0.000922303101936445 -0.0371266914986939 0.0179986583892183"
+        rpy="0 0 0" />
+      <mass
+        value="0.0389959772986439" />
+      <inertia
+        ixx="9.18197671581216E-06"
+        ixy="-1.55018457159418E-07"
+        ixz="-4.90058479517609E-08"
+        iyy="1.06656684022612E-05"
+        iyz="-4.9698919548839E-08"
+        izz="6.95177069171079E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RF_C_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RF_C_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_Coxa"
+    type="revolute">
+    <origin
+      xyz="0.0678999999999983 -0.0525000000000002 -0.00749999999999999"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RF_C_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RF_F_link">
+    <inertial>
+      <origin
+        xyz="-0.030471801186828 -2.29553084097646E-07 0.0246566344648547"
+        rpy="0 0 0" />
+      <mass
+        value="0.0144341085367684" />
+      <inertia
+        ixx="4.43242175227064E-06"
+        ixy="6.57855187416243E-10"
+        ixz="-1.72394354762456E-07"
+        iyy="1.09695215768825E-05"
+        iyz="-1.76601697539714E-12"
+        izz="6.99978823591703E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RF_F_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RF_F_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_Femur"
+    type="revolute">
+    <origin
+      xyz="-0.02415 -0.039375 0.00947499999999999"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="RF_C_link" />
+    <child
+      link="RF_F_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="800"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RF_T_link">
+    <inertial>
+      <origin
+        xyz="0.0121278189044144 0.000749614144558333 -0.0120037195686255"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116672766726343" />
+      <inertia
+        ixx="7.08113101443925E-07"
+        ixy="3.76585611240166E-09"
+        ixz="-4.93614244321091E-08"
+        iyy="3.77316032251104E-06"
+        iyz="2.47437170470671E-08"
+        izz="3.51662166240259E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RF_T_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RF_T_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_Tibia"
+    type="revolute">
+    <origin
+      xyz="-0.0719999999726885 0.000836227975427791 0.0127454995622928"
+      rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="RF_F_link" />
+    <child
+      link="RF_T_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="LM_C_link">
+    <inertial>
+      <origin
+        xyz="0.000922355485623083 0.0371280448012749 0.0158523527984801"
+        rpy="0 0 0" />
+      <mass
+        value="0.0389935657212823" />
+      <inertia
+        ixx="9.18079250623333E-06"
+        ixy="1.54971119620304E-07"
+        ixz="-4.90890566687644E-08"
+        iyy="1.06648240582475E-05"
+        iyz="5.02040775538284E-08"
+        izz="6.95139216559558E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LM_C_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LM_C_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LM_Coxa"
+    type="revolute">
+    <origin
+      xyz="-0.000349999999999934 0.0525 -0.0075"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="LM_C_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="LM_F_link">
+    <inertial>
+      <origin
+        xyz="0.0304718011868279 2.29553084090273E-07 0.0246566344648548"
+        rpy="0 0 0" />
+      <mass
+        value="0.0144341085367684" />
+      <inertia
+        ixx="4.43242175227065E-06"
+        ixy="6.57855187415831E-10"
+        ixz="1.72394354762449E-07"
+        iyy="1.09695215768826E-05"
+        iyz="1.76601697602125E-12"
+        izz="6.99978823591705E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LM_F_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LM_F_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LM_Femur"
+    type="revolute">
+    <origin
+      xyz="-0.02415 0.039375 0.00687499999999997"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="LM_C_link" />
+    <child
+      link="LM_F_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="800"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="LM_T_link">
+    <inertial>
+      <origin
+        xyz="0.0121278188968431 -0.000749614077957622 -0.0120037195649671"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116672766778527" />
+      <inertia
+        ixx="7.08113101725595E-07"
+        ixy="-3.76585727629777E-09"
+        ixz="-4.9361423911707E-08"
+        iyy="3.77316032354588E-06"
+        iyz="-2.47437181903914E-08"
+        izz="3.5166216628473E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LM_T_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/LM_T_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LM_Tibia"
+    type="revolute">
+    <origin
+      xyz="0.0720000000273115 0.000836227975427786 0.0127454995622928"
+      rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="LM_F_link" />
+    <child
+      link="LM_T_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RR_C_link">
+    <inertial>
+      <origin
+        xyz="0.000922303101936485 -0.0371266914986939 0.0179986583892183"
+        rpy="0 0 0" />
+      <mass
+        value="0.0389959772986439" />
+      <inertia
+        ixx="9.18197671581214E-06"
+        ixy="-1.55018457159413E-07"
+        ixz="-4.90058479517626E-08"
+        iyy="1.06656684022612E-05"
+        iyz="-4.96989195488442E-08"
+        izz="6.95177069171078E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RR_C_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RR_C_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_Coxa"
+    type="revolute">
+    <origin
+      xyz="-0.0679000000000005 -0.0524999999999994 -0.00749999999999998"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RR_C_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RR_F_link">
+    <inertial>
+      <origin
+        xyz="0.0304718011868279 2.29553084093309E-07 0.0246566344648548"
+        rpy="0 0 0" />
+      <mass
+        value="0.0144341085367684" />
+      <inertia
+        ixx="4.43242175227063E-06"
+        ixy="6.57855187416262E-10"
+        ixz="1.72394354762454E-07"
+        iyy="1.09695215768825E-05"
+        iyz="1.76601697547272E-12"
+        izz="6.99978823591704E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RR_F_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RR_F_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_Femur"
+    type="revolute">
+    <origin
+      xyz="-0.02415 -0.039375 0.00947500000000002"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="RR_C_link" />
+    <child
+      link="RR_F_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="800"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  <link
+    name="RR_T_link">
+    <inertial>
+      <origin
+        xyz="0.0121278189044148 0.000749614144558056 -0.0120037195686255"
+        rpy="0 0 0" />
+      <mass
+        value="0.0116672766726343" />
+      <inertia
+        ixx="7.08113101444542E-07"
+        ixy="3.76585611377526E-09"
+        ixz="-4.93614244321141E-08"
+        iyy="3.77316032251209E-06"
+        iyz="2.47437170470746E-08"
+        izz="3.51662166240426E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RR_T_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Hexa/meshes/RR_T_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_Tibia"
+    type="revolute">
+    <origin
+      xyz="0.0719999999726885 -0.000836227975427774 0.0127454995622928"
+      rpy="-3.14159265358979 0 1.5707963267949" />
+    <parent
+      link="RR_F_link" />
+    <child
+      link="RR_T_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="300"
+      velocity="5" />
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+  </joint>
+  
+  <transmission name="LF_Coxa_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LF_Coxa">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+    </joint>
+    <actuator name="LF_Coxa_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> 
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="LF_Femur_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LF_Femur">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LF_Femur_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="LF_tibia_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LF_tibia">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LF_tibia_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RM_Coxa_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RM_Coxa">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RM_Coxa_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RM_Femur_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RM_Femur">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RM_Femur_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RM_Tibia_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RM_Tibia">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RM_Tibia_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="LR_Coxa_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LR_Coxa">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LR_Coxa_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="LR_Femur_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LR_Femur">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LR_Femur_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="LR_Tibia_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LR_Tibia">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LR_Tibia_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RF_Coxa_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RF_Coxa">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RF_Coxa_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RF_Femur_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RF_Femur">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RF_Femur_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RF_Tibia_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RF_Tibia">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RF_Tibia_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="LM_Coxa_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LM_Coxa">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LM_Coxa_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="LM_Femur_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LM_Femur">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LM_Femur_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+     </actuator>
+  </transmission>
+
+  <transmission name="LM_Tibia_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="LM_Tibia">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="LM_Tibia_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RR_Coxa_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RR_Coxa">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_Coxa_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RR_Femur_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RR_Femur">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_Femur_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="RR_Tibia_transmission">
+    <type>hardware_interface/SimpleTransmission</type>
+    <joint name="RR_Tibia">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_Tibia_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      </plugin>
+  </gazebo>
+
+</robot>

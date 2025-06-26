@@ -1,0 +1,14 @@
+ <launch>
+
+  <param name="robot_description" textfile="$(find Hexa)/urdf/Hexa.urdf" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+ <!-- <node name="imu_odometry_node" pkg="my_hexapod" type="imu_odometry_node.py" output="screen" /> -->
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find Hexa)/rviz/Hexa.rviz"/>
+
+
+  <param name="use_sim_time" value="false" />
+
+</launch> 

@@ -1,0 +1,37 @@
+# ROS build artifacts
+build/
+devel/
+install/
+log/
+*.rosinstall
+.catkin_tools/
+.ros/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Arduino
+*.hex
+*.elf
+*.eep
+*.lss
+*.map
+*.srec
+*.lst
+*.sym
+*.ino.hex
+*.ino.elf
+*.ino.eep
+*.ino.lss
+*.ino.map
+*.ino.srec
+*.ino.lst
+*.ino.sym
+*.o
+*.d
+*.core
+.vscode/
